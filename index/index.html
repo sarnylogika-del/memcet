@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+    
+<html>   
+<head>
+    <title> Мемні котики</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <header>
+      <h1>Мемні котики</h1>
+        <nav>
+            
+             <a href="#">Головна</a>
+             <a href="#">Про нас</a> 
+             <a href="#">Контакти</a>
+        </nav>
+    </header>
+    <main>
+    <h1 class="h1">Коти </h1>
+<p class="p">
+    Коти — це неймовірні хижаки, які сплять 13–16 годин на добу і можуть розвивати швидкість до 48 км/год. Вони мають 95,6% спільної ДНК з тиграми, бачать у темряві вшестеро краще за людей, а їхній унікальний "відбиток пальця" знаходиться на носі.Ось кілька дивовижних фактів про котів:Мявкання: Коти нявкають виключно для спілкування з людьми, а не між собою.Десятки порід: Від великих і пухнастих мейн-кунів до екзотичних безшерстих сфінксів — кожна порода має свій характер та потреби.Довголіття: Середня тривалість життя домашнього улюбленця становить 12–15 років, але за належного догляду вони можуть жити і до 20 років.Догляд за котами вимагає якісного підходу:Правильне харчування: Категорично забороняється годувати котів шоколадом, цибулею, часником, сирою рибою та алкоголем.Гігієна та здоров'я: Їх необхідно регулярно обробляти від паразитів та вакцинувати у ветеринарних клініках.Розваги: Активні ігри з вудочками-дражнильками або лазерними указками допомагають підтримувати їхню фізичну форму та запобігають стресу.
+</p>
+<div class="div">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKl34fAwbQEpXHHhNcHJm10qjCUxQIMwadPPKJxjvlgw&s=10">
+   <p> цей котик дуже хотів скоштувати линон. це його реакція напевно дуже смачно</p> 
+  </div>
+  <div class="div">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtvLDoZTC2C54RmL0OkqgMGaKjUg3g43AicerYsQoHbg&s=10">
+  <p>Такий кіт сто відсотків не вкусить бо він невміє кусати він вміє дивитися на лимон</p>
+</div>
+<div class="div">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-sZu3gd5TM3s-xz1VS0KdIzcc9E8QRI9YEDI97YXaCg&s=10">
+  <p>Вони живуть по всьому світі </p>
+  </div>
+ <div class="div">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG5zzpBj8v1Ipwu8Jn7qi0LxvRCYTQrILX8ouid7SXcA&s=10">
+  <p>Такі коти дуже милі і красиві</p>
+ 
+  </div>
+     </main>
+ 
+    <footer>
+       <!-- Початок гри Cat Catcher -->
+<!-- Початок гри Cat Catcher -->
+<div id="game-section">
+    <style>
+        #game-section {
+            text-align: center;
+            font-family: sans-serif;
+            margin: 40px auto;
+            color: white;
+        }
+
+        #game-container {
+            position: relative !important;
+            width: 100%;
+            max-width: 700px;
+            height: 450px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #161621, #252538);
+            border: 4px solid #ff9f43;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            user-select: none;
+        }
+
+        #progress-container {
+            position: absolute !important;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 18px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 2px solid #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        #progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff9f43, #1dd1a1);
+            transition: width 0.1s linear;
+        }
+
+        #percent-text {
+            position: absolute !important;
+            top: 12px;
+            right: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #1dd1a1;
+            z-index: 5;
+        }
+
+        #basket {
+            position: absolute !important;
+            bottom: 20px;
+            left: 315px;
+            width: 70px;
+            height: 45px;
+            font-size: 40px;
+            line-height: 45px;
+            text-align: center;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        #game-container .falling-item {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 32px !important;
+            text-align: center !important;
+            line-height: 40px !important;
+            pointer-events: none !important;
+            z-index: 3 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            will-change: transform;
+        }
+
+        .modal-game {
+            display: none;
+            position: absolute !important;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(15, 15, 22, 0.95);
+            padding: 25px 30px;
+            border-radius: 15px;
+            border: 2px solid #ff9f43;
+            z-index: 10;
+            width: 80%;
+        }
+
+        .action-btn-game {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            background-color: #ff9f43;
+            border: none;
+            color: #1a1a24;
+            border-radius: 6px;
+        }
+    </style>
+
+    <h2 style="color: #ff9f43;">🐱 Гра: Ловець котиків 🧺</h2>
+
+    <div id="game-container">
+        <div id="progress-container"><div id="progress-bar"></div></div>
+        <div id="percent-text">0%</div>
+
+        <div id="basket">🧺</div>
+
+        <div id="modal-loss" class="modal-game">
+            <h3 id="loss-title" style="color: #ff6b6b; margin-top:0;">💥 Програш!</h3>
+            <p id="loss-reason">Ти щось пропустив!</p>
+            <p>Прогрес: <span id="loss-percent" style="color:#ff9f43; font-weight:bold;">0</span>%</p>
+            <button class="action-btn-game" onclick="restartGame()">Спробувати знову</button>
+        </div>
+
+        <div id="modal-win" class="modal-game">
+            <h3 style="color: #1dd1a1; margin-top:0;">🎉 100% ПРОЙДЕНО!</h3>
+            <p>Усі котики в безпеці!</p>
+            <button class="action-btn-game" onclick="restartGame()">Пройти ще раз</button>
+        </div>
+    </div>
+
+    <p style="color: #ccc; font-size: 14px; margin-top: 10px;">
+        Керування: <b>Води мишкою</b> по полю або використовуй <b>Стрілки ◄ ►</b>
+    </p>
+
+    <script>
+        const container = document.getElementById('game-container');
+        const basket = document.getElementById('basket');
+        const progressBar = document.getElementById('progress-bar');
+        const percentText = document.getElementById('percent-text');
+        const modalLoss = document.getElementById('modal-loss');
+        const modalWin = document.getElementById('modal-win');
+        const lossPercent = document.getElementById('loss-percent');
+        const lossReason = document.getElementById('loss-reason');
+
+        let basketX = 315;
+        const basketWidth = 70;
+        let isGameOver = false;
+        let activeItems = [];
+        let animationFrame;
+        let startTime = 0;
+        let levelDuration = 20000;
+        let keys = { left: false, right: false };
+
+        const pattern = [
+            { time: 1000, x: 150, type: 'cat' },
+            { time: 2500, x: 450, type: 'cat' },
+            { time: 4000, x: 300, type: 'bomb' },
+            { time: 4100, x: 180, type: 'cat' },
+            { time: 6000, x: 500, type: 'cat' },
+            { time: 7500, x: 250, type: 'fish' },
+            { time: 9000, x: 400, type: 'bomb' },
+            { time: 9100, x: 520, type: 'cat' },
+            { time: 11500, x: 100, type: 'cat' },
+            { time: 13000, x: 350, type: 'bomb' },
+            { time: 13100, x: 230, type: 'cat' },
+            { time: 15500, x: 550, type: 'cat' },
+            { time: 17000, x: 300, type: 'fish' },
+            { time: 18500, x: 450, type: 'cat' }
+        ];
+
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            let mouseX = e.clientX - rect.left - basketWidth / 2;
+            if (mouseX < 0) mouseX = 0;
+            if (mouseX > rect.width - basketWidth) mouseX = rect.width - basketWidth;
+            basketX = mouseX;
+            basket.style.left = basketX + 'px';
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'ArrowLeft') keys.left = true;
+            if (e.code === 'ArrowRight') keys.right = true;
+        });
+        document.addEventListener('keyup', (e) => {
+            if (e.code === 'ArrowLeft') keys.left = false;
+            if (e.code === 'ArrowRight') keys.right = false;
+        });
+
+        function createItem(type, x) {
+            const el = document.createElement('div');
+            el.classList.add('falling-item');
+            if (type === 'cat') el.innerHTML = '🐈';
+            if (type === 'bomb') el.innerHTML = '💣';
+            if (type === 'fish') el.innerHTML = '🐟';
+
+            const startY = 40;
+            el.style.transform = `translate(${x}px, ${startY}px)`;
+            container.appendChild(el);
+
+            activeItems.push({ element: el, x: x, y: startY, type: type, speed: 3.5 });
+        }
+
+        function gameLoop(timestamp) {
+            if (isGameOver) return;
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+
+            let progress = Math.min(100, Math.floor((elapsed / levelDuration) * 100));
+            progressBar.style.width = progress + '%';
+            percentText.innerText = progress + '%';
+
+            const containerWidth = container.getBoundingClientRect().width || 700;
+            if (keys.left && basketX > 0) basketX -= 7;
+            if (keys.right && basketX < containerWidth - basketWidth) basketX += 7;
+            basket.style.left = basketX + 'px';
+
+            pattern.forEach(item => {
+                if (!item.spawned && elapsed >= item.time) {
+                    item.spawned = true;
+                    createItem(item.type, item.x);
+                }
+            });
+
+            for (let i = activeItems.length - 1; i >= 0; i--) {
+                let item = activeItems[i];
+                item.y += item.speed;
+                item.element.style.transform = `translate(${item.x}px, ${item.y}px)`;
+
+                // Перевірка ловлі кошиком
+                if (item.y >= 360 && item.y <= 400) {
+                    if (item.x + 30 >= basketX && item.x <= basketX + basketWidth) {
+                        if (item.type === 'bomb') {
+                            gameOver(progress, "💥 Зіткнення з бомбою!");
+                            return;
+                        } else {
+                            item.element.remove();
+                            activeItems.splice(i, 1);
+                            continue;
+                        }
+                    }
+                }
+
+                // Перевірка падіння на підлогу
+                if (item.y > 410) {
+                    if (item.type === 'cat') {
+                        gameOver(progress, "😿 Не встиг зловити котика!");
+                        return;
+                    } else if (item.type === 'fish') {
+                        gameOver(progress, "🐟 Не встиг зловити рибку!");
+                        return;
+                    } else {
+                        item.element.remove();
+                        activeItems.splice(i, 1);
+                    }
+                }
+            }
+
+            if (progress >= 100 && activeItems.length === 0) {
+                gameWin();
+                return;
+            }
+
+            animationFrame = requestAnimationFrame(gameLoop);
+        }
+
+        function gameOver(percent, reason) {
+            isGameOver = true;
+            lossPercent.innerText = percent;
+            lossReason.innerText = reason;
+            modalLoss.style.display = 'block';
+        }
+
+        function gameWin() {
+            isGameOver = true;
+            modalWin.style.display = 'block';
+        }
+
+        function restartGame() {
+            isGameOver = false;
+            startTime = 0;
+            activeItems.forEach(item => item.element.remove());
+            activeItems = [];
+            pattern.forEach(item => item.spawned = false);
+
+            progressBar.style.width = '0%';
+            percentText.innerText = '0%';
+            modalLoss.style.display = 'none';
+            modalWin.style.display = 'none';
+
+            cancelAnimationFrame(animationFrame);
+            animationFrame = requestAnimationFrame(gameLoop);
+        }
+
+        restartGame();
+    </script>
+</div>
+<!-- Кінець гри Cat Catcher -->
+      
+    </footer>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
